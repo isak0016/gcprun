@@ -17,7 +17,7 @@ jobs:
           workload_identity_provider: "projects/605540746604/locations/global/workloadIdentityPools/pool2/providers/poolid"
           service_account: "github@insighta-test1.iam.gserviceaccount.com"
 
-      - run: gcloud auth configure-docker --quiet
+      - run: gcloud auth configure-docker us-docker.pkg.dev --quiet
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
