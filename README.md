@@ -1,3 +1,3 @@
 # gcprun
 
-:s
+:o
