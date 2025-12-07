@@ -32,5 +32,13 @@ jobs:
           service: "insighta-cloud-run"
           image: "us-docker.pkg.dev/insighta-test1/hello-insighta/hello-insighta:latest"
 
+      - name: Make Cloud Run service public
+        run: |
+          gcloud run services add-iam-policy-binding insighta-cloud-run \
+          --member="allUsers" \
+          --role="roles/run.invoker" \
+          --region=us-central1 \
+          --project=insighta-test1
+
       - name: "Use output"
         run: 'curl "${{ steps.deploy.outputs.url }}"'
