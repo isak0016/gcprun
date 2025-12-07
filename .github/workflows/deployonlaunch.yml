@@ -24,13 +24,13 @@ jobs:
         with:
           context: .
           push: true
-          tags: gcr.io/insighta-test1/hello-insighta:latest
+          tags: us-docker.pkg.dev/insighta-test1/hello-insighta/hello-insighta:latest
 
       - id: "deploy"
         uses: "google-github-actions/deploy-cloudrun@v3"
         with:
           service: "insighta-cloud-run"
-          image: "gcr.io/insighta-test1/hello-insighta:latest"
+          image: "us-docker.pkg.dev/insighta-test1/hello-insighta/hello-insighta:latest"
 
       - name: "Use output"
         run: 'curl "${{ steps.deploy.outputs.url }}"'
